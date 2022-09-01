@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyCustomView">
+        <!--attr 태그 하나가 속성 하나임-->
+    </declare-styleable>
+
+</resources>
