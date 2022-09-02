@@ -2,6 +2,8 @@
 <resources>
     <declare-styleable name="MyCustomView">
         <!--attr 태그 하나가 속성 하나임-->
+        <!--여기서 설정하면 xml파일에서 불러서 사용 가능-->
+
     </declare-styleable>
 
 </resources>

@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         btnDown = findViewById(R.id.btn_down);
         textValue = findViewById(R.id.txt_value);
 
-        nValue = 0;
-
     }
 
     private String strValue;
@@ -52,20 +50,24 @@ public class MainActivity extends AppCompatActivity {
         nValue = Integer.parseInt(textValue.getText().toString());
 
         btnUp.setOnClickListener(v -> {
-            Log.d(TAG, "initListener: up");
-            if(nValue <= 11){
+            //Log.d(TAG, "initListener: up");
+            //Log.d(TAG, "initListener: nValue " + nValue);
+
+            if(nValue < nMax){
                 nValue++;
             }
 
             strValue = Integer.toString(nValue);
             textValue.setText(strValue);
             customImg.setValue(nValue); //customView change
+
         });
 
         btnDown.setOnClickListener(v -> {
-            Log.d(TAG, "initListener: down");
+            //Log.d(TAG, "initListener: down");
+            //Log.d(TAG, "initListener: nValue " + nValue);
 
-            if(nValue>0){
+            if(nValue > nMin){
                 nValue--;
             }
 
@@ -76,15 +78,14 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Log.d(TAG, "initListener: nValue " + nValue);
 
     }
     private void initData(){ }
 
 
-    private int nMax = 11;
+    private int nMax = 10;
     private int nMin = 0;
-    private int setMax(int value){
+    /*private int setMax(int value){
 
         if(value < nMin)
             value = nMin;
@@ -92,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             value = nMax;
 
         return value;
-
-    }
+    }*/
 
 }
