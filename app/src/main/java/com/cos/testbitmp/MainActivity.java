@@ -53,19 +53,26 @@ public class MainActivity extends AppCompatActivity {
 
         btnUp.setOnClickListener(v -> {
             Log.d(TAG, "initListener: up");
-            nValue++;
+            if(nValue <= 11){
+                nValue++;
+            }
 
-            strValue = Integer.toString(setMax(nValue));
+            strValue = Integer.toString(nValue);
             textValue.setText(strValue);
+            customImg.setValue(nValue); //customView change
         });
 
         btnDown.setOnClickListener(v -> {
             Log.d(TAG, "initListener: down");
-            nValue--;
 
+            if(nValue>0){
+                nValue--;
+            }
 
-            strValue = Integer.toString(setMax(nValue));
+            strValue = Integer.toString(nValue);
             textValue.setText(strValue);
+
+            customImg.setValue(nValue); //customView change
 
         });
 

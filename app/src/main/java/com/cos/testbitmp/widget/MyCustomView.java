@@ -68,10 +68,14 @@ public class MyCustomView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+
+        setValue(nCurrentValue);
+
+
         //save() 랑 restore()를 까먹지마!
         canvas.save();
         if(array_Bitmap.size() > 0){
-            Log.d(TAG, "onDraw: 실행됨");
+            //Log.d(TAG, "onDraw: 실행됨");
             canvas.drawBitmap(array_Bitmap.get(nCurrentValue), 0, 0, paint);
 
         }
@@ -121,7 +125,7 @@ public class MyCustomView extends View {
 
     }
 
-    private int nMax = 11;
+    private int nMax = 10;
     private int nMin = 0;
     public void setValue(int nValue){
 
@@ -134,7 +138,6 @@ public class MyCustomView extends View {
 
         if(nCurrentValue != nValue)
             nCurrentValue = nValue;
-
 
         postInvalidate();
 
