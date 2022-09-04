@@ -62,16 +62,20 @@ public class MyCustomView extends View {
 
 
     //초기값
-    private int nCurrentValue = 0;
+    private int nCurrentValue;
+    private int nValue;
 
+    //뷰의 내용이 렌더링 될 때 호출된다
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        //setValue(nCurrentValue);
+
         //save() 랑 restore()를 까먹지마!
         canvas.save();
         if(array_Bitmap.size() > 0){
-            Log.d(TAG, "onDraw: 실행됨");
+            //Log.d(TAG, "onDraw: 실행됨");
             canvas.drawBitmap(array_Bitmap.get(nCurrentValue), 0, 0, paint);
 
         }
@@ -92,7 +96,6 @@ public class MyCustomView extends View {
         height = 2780;
 
         setMeasuredDimension(width, height);*/
-
 
     }
 
@@ -121,22 +124,22 @@ public class MyCustomView extends View {
 
     }
 
-    private int nMax = 11;
+    private int nMax = 10;
     private int nMin = 0;
-    public void setValue(int nValue){
+    public void setValue(int value){
+        //1. 지금은 넘어오는 값을 조정했음
+        //2. 실제 업무에서는 그 값은 조정할 수 없어 -> 고민 더 해봐
 
-        //value 값 지정해서 넘어오면 그리기
-        if(nValue < nMin)
-            nValue = nMin;
-        else if(nValue > nMax)
-            nValue = nMax;
-
-
-        if(nCurrentValue != nValue)
-            nCurrentValue = nValue;
+        if(value < nMin)
+            value = nMin;
+        else if(value > nMax)
+            value = nMax;
 
 
-        postInvalidate();
+        if(nCurrentValue != value)
+            nCurrentValue = value;
+
+        invalidate();
 
     }
 
